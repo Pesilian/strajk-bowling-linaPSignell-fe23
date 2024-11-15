@@ -8,35 +8,31 @@ import {
 import LoadingPage from './components/Loading';
 import BookingForm from './components/BookingForm';
 import Confirmation from './components/Confirmation';
-import Menu from './components/Menu';
+import MenuPage from './components/Menu';
 import './App.css';
 
-const App: React.FC = () => (
-  <Router>
-    <div className="container">
+const App: React.FC = () => {
+  const location = useLocation();
+
+  // Kontrollera om sökvägen är /menu
+  const isMenuPage = location.pathname === '/menu';
+
+  return (
+    <div className={`container ${isMenuPage ? 'menu-open' : ''}`}>
       <Routes>
         <Route path="/" element={<LoadingPage />} />
-        <Route
-          path="/booking"
-          element={
-            <>
-              <Menu />
-              <BookingForm />
-            </>
-          }
-        />
-        <Route
-          path="/confirmation"
-          element={
-            <>
-              <Menu />
-              <Confirmation />
-            </>
-          }
-        />
+        <Route path="/booking" element={<BookingForm />} />
+        <Route path="/confirmation" element={<Confirmation />} />
+        <Route path="/menu" element={<MenuPage />} />
       </Routes>
     </div>
+  );
+};
+
+const AppWrapper: React.FC = () => (
+  <Router>
+    <App />
   </Router>
 );
 
-export default App;
+export default AppWrapper;

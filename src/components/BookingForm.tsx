@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { makeBooking } from '../services/api';
 import '../styles/BookingForm.css';
 
 const BookingForm: React.FC = () => {
@@ -11,23 +11,13 @@ const BookingForm: React.FC = () => {
   const [shoes, setShoes] = useState<number[]>([]);
   const navigate = useNavigate();
 
-  const handleSubmit = async () => {
-    const apiKey = '738c6b9d-24cf-47c3-b688-f4f4c5747662';
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     const data = { when: `${whenDate}T${whenTime}`, lanes, people, shoes };
 
     try {
-      const response = await axios.post(
-        'https://h5jbtjv6if.execute-api.eu-north-1.amazonaws.com',
-        data,
-        {
-          headers: {
-            'x-api-key': apiKey,
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-
-      navigate('/confirmation', { state: { booking: response.data } });
+      const response = await makeBooking(data);
+      navigate('/confirmation', { state: { booking: response } });
     } catch (error) {
       console.error('Error making booking:', error);
     }
@@ -45,37 +35,9 @@ const BookingForm: React.FC = () => {
 
   return (
     <div className="bookingform">
-      <svg
-        width="76"
-        height="110"
-        viewBox="0 0 136 196"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M0 128.154C0 84.3365 58.5556 50.4135 45.3333 0C76.5 0 136 45.2308 136 128.154C136 146.148 128.836 163.405 116.083 176.128C103.331 188.852 86.0347 196 68 196C49.9653 196 32.6692 188.852 19.9167 176.128C7.16426 163.405 0 146.148 0 128.154Z"
-          fill="#F2C94C"
-        />
-        <path
-          d="M113 109.692C113 136.605 94.5 147 76 147C57.5 147 39 136.605 39 109.692C39 82.7795 62.125 69.5865 57.5 50C81.7812 50 113 82.7795 113 109.692Z"
-          fill="#F2994A"
-        />
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M68 196C97.8234 196 122 171.823 122 142C122 112.177 97.8234 88 68 88C38.1766 88 14 112.177 14 142C14 171.823 38.1766 196 68 196ZM57 107C54.2386 107 52 105.209 52 103C52 100.791 54.2386 99 57 99C59.7614 99 62 100.791 62 103C62 105.209 59.7614 107 57 107ZM72 107C72 109.209 74.2386 111 77 111C79.7614 111 82 109.209 82 107C82 104.791 79.7614 103 77 103C74.2386 103 72 104.791 72 107ZM59 142C54.0294 142 50 138.194 50 133.5C50 128.806 54.0294 125 59 125C63.9706 125 68 128.806 68 133.5C68 138.194 63.9706 142 59 142Z"
-          fill="#EC315A"
-        />
-      </svg>
       <h1 className="bookingheader">Booking</h1>
       <h2 className="subheader-when">When, what & Who</h2>
-      <form
-        id="form"
-        onSubmit={e => {
-          e.preventDefault();
-          handleSubmit();
-        }}
-      >
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Date</label>
           <input
@@ -93,7 +55,7 @@ const BookingForm: React.FC = () => {
           />
         </div>
         <div className="form-group">
-          <label>Number of awsome bowlers</label>
+          <label>Number of bowlers</label>
           <input
             type="number"
             min="1"
@@ -111,13 +73,11 @@ const BookingForm: React.FC = () => {
             onChange={e => setLanes(Number(e.target.value))}
           />
         </div>
-      </form>
-      <h2 className="subheader-shoes">Shoes</h2>
-      <form>
+        <h2 className="subheader-shoes">Shoes</h2>
         {Array.from({ length: people }).map((_, idx) => (
-          <div className="shoes-cont">
-            <div className="form-group" key={idx}>
-              <label>Shoe size / person {idx + 1}:</label>
+          <div className="shoes-cont" key={idx}>
+            <div className="form-group">
+              <label>Shoe size for person {idx + 1}:</label>
               <input
                 type="number"
                 min="30"
@@ -139,13 +99,15 @@ const BookingForm: React.FC = () => {
             </button>
           </div>
         ))}
+        <div className="buttons-cont">
+          <button className="addplayer-btn" type="button" onClick={addPlayer}>
+            +
+          </button>
+          <button className="submit-btn" type="submit">
+            Striiiiiike!
+          </button>
+        </div>
       </form>
-      <button className="addplayer-btn" type="button" onClick={addPlayer}>
-        +
-      </button>
-      <button className="submit-btn" type="submit">
-        Striiiiiike!
-      </button>
     </div>
   );
 };

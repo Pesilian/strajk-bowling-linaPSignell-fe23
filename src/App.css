@@ -13,7 +13,7 @@ body {
 
 .container {
   height: 80vh;
-  background-color: #fff4f1;
+  background-color: #fff4f1; /* Standardfärg */
   width: 40vh;
   margin: 0 auto;
   padding: 10px;
@@ -22,5 +22,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative; /* Behövs för absolut positionering av knappen */
+  position: relative;
+  transition: background-color 0.3s ease; /* Smidig övergång */
+}
+
+.container.menu-open {
+  background-color: #000; /* Svart bakgrund på /menu */
 }

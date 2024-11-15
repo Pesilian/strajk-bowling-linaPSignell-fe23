@@ -1,0 +1,13 @@
+.confirmation-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.menu-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}

@@ -1,51 +1,28 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import '../styles/Confirmation.css';
 
-interface ConfirmationProps {
-  booking?: {
-    when: string;
-    lanes: number;
-    people: number;
-    shoes: number[];
-    price: number;
-    id: string;
-    active: boolean;
-  };
-}
-
-const Confirmation: React.FC<ConfirmationProps> = ({ booking }) => {
+const Confirmation: React.FC = () => {
   const location = useLocation();
-  const bookingData = booking || location.state?.booking;
+  const bookingData = location.state?.booking;
 
   if (!bookingData) {
-    return <p>Ingen bokningsdata tillgänglig.</p>;
+    return (
+      <div className="confirmation-page">
+        <p>Ingen bokningsdata tillgänglig.</p>
+      </div>
+    );
   }
 
   return (
-    <div style={{ padding: '1rem' }}>
+    <div className="confirmation-page">
       <h1>Bokningsbekräftelse</h1>
-      <p>
-        <strong>Bokningsnummer:</strong> {bookingData.id}
-      </p>
-      <p>
-        <strong>Datum och tid:</strong>{' '}
-        {new Date(bookingData.when).toLocaleString()}
-      </p>
-      <p>
-        <strong>Antal banor:</strong> {bookingData.lanes}
-      </p>
-      <p>
-        <strong>Antal personer:</strong> {bookingData.people}
-      </p>
-      <p>
-        <strong>Skostorlekar:</strong> {bookingData.shoes.join(', ')}
-      </p>
-      <p>
-        <strong>Totalt pris:</strong> {bookingData.price} kr
-      </p>
-      <p>
-        <strong>Status:</strong> {bookingData.active ? 'Aktiv' : 'Avslutad'}
-      </p>
+      <p>Bokningsnummer: {bookingData.id}</p>
+      <p>Datum och tid: {new Date(bookingData.when).toLocaleString()}</p>
+      <p>Antal banor: {bookingData.lanes}</p>
+      <p>Antal personer: {bookingData.people}</p>
+      <p>Skostorlekar: {bookingData.shoes.join(', ')}</p>
+      <p>Totalt pris: {bookingData.price} kr</p>
     </div>
   );
 };

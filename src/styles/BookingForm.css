@@ -1,4 +1,4 @@
-.menubutton {
+.menu-btn {
   position: absolute;
   top: 10px;
   left: 10px;
@@ -86,6 +86,31 @@
   border: none;
   background-color: #fff4f1;
 }
+.shoes-cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-btn {
+  font-family: 'work sans', sans-serif;
+  border: none;
+  background-color: #ec315a;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px;
+}
+
+.buttons-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .addplayer-btn {
   border: none;
@@ -107,23 +132,4 @@
   color: #fff;
   text-transform: uppercase;
   font-size: 24px;
-}
-
-.shoes-cont {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.remove-btn {
-  font-family: 'work sans', sans-serif;
-  border: none;
-  background-color: #ec315a;
-  width: 40px;
-  height: 40px;
-  border-radius: 40px;
-  color: #fff;
-  font-size: 30px;
-  text-align: center;
-  margin: 10px;
 }

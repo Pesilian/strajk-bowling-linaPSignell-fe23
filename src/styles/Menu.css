@@ -1,3 +1,27 @@
 .nav {
-  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.nav ul {
+  list-style: none;
+}
+
+.nav li {
+  text-decoration: none;
+  font-family: 'Bebas Neue', sans-serif;
+  color: #ec315a;
+  font-size: 48px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.nav a {
+  text-decoration: none;
+  font-family: 'Bebas Neue', sans-serif;
+  color: #ec315a;
 }
