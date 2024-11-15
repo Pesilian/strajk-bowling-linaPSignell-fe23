@@ -7,9 +7,6 @@
   position: relative;
 }
 
-.confirmation-page svg {
-}
-
 .confirmation-menu-btn {
   position: absolute;
   top: 10px;
@@ -82,5 +79,6 @@
 }
 
 .colorchange p {
+  font-size: 24px;
   color: #ec315a;
 }

@@ -99,6 +99,11 @@
   overflow-y: auto;
   width: 100%;
 }
+
+.shoes {
+  width: 250px;
+}
+
 .remove-btn {
   font-family: 'work sans', sans-serif;
   border: none;

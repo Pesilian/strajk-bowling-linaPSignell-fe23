@@ -119,7 +119,7 @@ const BookingForm: React.FC = () => {
         <h2 className="subheader-shoes">Shoes</h2>
         {Array.from({ length: people }).map((_, idx) => (
           <div className="shoes-cont" key={idx}>
-            <div className="form-group">
+            <div className="form-group shoes">
               <label>Shoe size for person {idx + 1}:</label>
               <input
                 type="number"
