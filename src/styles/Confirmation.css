@@ -1,4 +1,5 @@
 .confirmation-page {
+  height: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,8 +7,80 @@
   position: relative;
 }
 
-.menu-btn {
+.confirmation-page svg {
+}
+
+.confirmation-menu-btn {
   position: absolute;
   top: 10px;
-  left: 10px;
+  left: -10px;
+}
+
+.no-booking {
+  justify-content: space-between;
+}
+
+.no-booking h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #ec315a;
+  font-size: 40px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 300px;
+}
+
+.confirmationpage-btn,
+.confirmation-page a {
+  border: none;
+  background-color: #ec315a;
+  height: 68px;
+  width: 340px;
+  border-radius: 4px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.confirmation h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #ec315a;
+  font-size: 60px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.form-group {
+  padding: 10px;
+  border: 2px solid #441d81;
+  margin: 10px;
+}
+
+.form-group label {
+  padding-left: 5px;
+  padding-right: 5px;
+  position: relative;
+  top: -20px;
+  left: 20px;
+  background-color: #fff4f1;
+  font-family: 'Bebas Neue', sans-serif;
+  position: relative;
+}
+
+.form-group p {
+  border: none;
+  background-color: #fff4f1;
+  font-family: 'Work Sans', sans-serif;
+  width: 300px;
+}
+
+.colorchange {
+  margin-top: 40px;
+  border: 2px solid #ec315a;
+}
+
+.colorchange p {
+  color: #ec315a;
 }

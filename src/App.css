@@ -5,6 +5,7 @@
 
 body {
   height: 100vh;
+  overflow-y: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,9 +13,10 @@ body {
 }
 
 .container {
-  height: 80vh;
-  background-color: #fff4f1; /* Standardfärg */
-  width: 40vh;
+  height: auto;
+
+  background-color: #fff4f1;
+  width: 400px;
   margin: 0 auto;
   padding: 10px;
   box-sizing: border-box;
@@ -23,9 +25,8 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  transition: background-color 0.3s ease; /* Smidig övergång */
 }
 
 .container.menu-open {
-  background-color: #000; /* Svart bakgrund på /menu */
+  background-color: #fff;
 }

@@ -14,36 +14,20 @@ const Confirmation: React.FC = () => {
 
   if (!bookingData) {
     return (
-      <div className="confirmation-page">
-        <svg
-          className="menu-btn"
-          width="52"
-          height="46"
-          viewBox="0 0 52 46"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          onClick={handleMenuClick}
-        >
-          <rect
-            width="52"
-            height="46"
-            rx="4"
-            fill="#EC315A"
-            fillOpacity="0.12"
-          />
-          <rect x="12" y="12" width="28" height="2" rx="1" fill="#EC315A" />
-          <rect x="12" y="22" width="22" height="2" rx="1" fill="#EC315A" />
-          <rect x="12" y="32" width="15" height="2" rx="1" fill="#EC315A" />
-        </svg>
-        <p>Ingen bokningsdata tillgänglig.</p>
+      <div className="confirmation-page no-booking">
+        <h1>No bookings here!</h1>
+        <button className="confirmationpage-btn">
+          {' '}
+          <a href="/booking">But I wanna bowl!</a>
+        </button>
       </div>
     );
   }
 
   return (
-    <div className="confirmation-page">
+    <div className="confirmation-page confirmation">
       <svg
-        className="menu-btn"
+        className="confirmation-menu-btn"
         width="52"
         height="46"
         viewBox="0 0 52 46"
@@ -56,7 +40,9 @@ const Confirmation: React.FC = () => {
         <rect x="12" y="22" width="22" height="2" rx="1" fill="#EC315A" />
         <rect x="12" y="32" width="15" height="2" rx="1" fill="#EC315A" />
       </svg>
+
       <svg
+        className="logo"
         width="76"
         height="110"
         viewBox="0 0 136 196"
@@ -78,14 +64,31 @@ const Confirmation: React.FC = () => {
           fill="#EC315A"
         />
       </svg>
+
       <h1>See you soon</h1>
-      <p>Datum och tid: {new Date(bookingData.when).toLocaleString()}</p>
-
-      <p>Antal personer: {bookingData.people}</p>
-      <p>Antal banor: {bookingData.lanes}</p>
-
-      <p>Bokningsnummer: {bookingData.id}</p>
-      <p>Totalt pris: {bookingData.price} kr</p>
+      <div className="form-group">
+        <label>When</label>
+        <p> {new Date(bookingData.when).toLocaleString()}</p>
+      </div>
+      <div className="form-group">
+        <label>Who</label>
+        <p>{bookingData.people} pers</p>
+      </div>
+      <div className="form-group">
+        <label>Lanes</label>
+        <p>{bookingData.lanes}</p>
+      </div>
+      <div className="form-group">
+        <label>Booking number</label>
+        <p> {bookingData.id}</p>
+      </div>
+      <div className="form-group colorchange">
+        <p>Total {bookingData.price} SEK</p>
+      </div>
+      <button className="confirmationpage-btn">
+        {' '}
+        <a href="/booking">Sweet, let go!</a>
+      </button>
     </div>
   );
 };

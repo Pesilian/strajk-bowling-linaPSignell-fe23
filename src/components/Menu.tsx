@@ -3,7 +3,7 @@ import '../styles/Menu.css';
 
 const MenuPage: React.FC = () => {
   return (
-    <div>
+    <div className="menu-page">
       <nav className="nav">
         <ul>
           <li>

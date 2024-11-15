@@ -40,7 +40,7 @@ const BookingForm: React.FC = () => {
   return (
     <div className="bookingform">
       <svg
-        className="menu-btn"
+        className="booking-menu-btn"
         width="52"
         height="46"
         viewBox="0 0 52 46"
@@ -55,6 +55,7 @@ const BookingForm: React.FC = () => {
       </svg>
 
       <svg
+        className="logo"
         width="76"
         height="110"
         viewBox="0 0 136 196"

@@ -1,14 +1,15 @@
-.menu-btn {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
-
 .bookingform {
+  height: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.booking-menu-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
 }
 
 .bookingheader {
@@ -67,31 +68,37 @@
   left: auto;
 }
 .form-group {
-  padding: 10px;
+  height: 40px;
   border: 2px solid;
-  margin: 10px;
 }
-.form-group > label {
-  padding-left: 5px;
-  padding-right: 5px;
+
+.form-group label {
+  z-index: 1000000;
   position: relative;
-  top: -20px;
+  top: 40px;
   left: 20px;
   background-color: #fff4f1;
   font-family: 'Bebas Neue', sans-serif;
   position: relative;
 }
 
-.form-group > input {
-  border: none;
+.form-group input {
+  height: 60%;
+  width: 100%;
   background-color: #fff4f1;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 20px;
+  border: none;
 }
+
 .shoes-cont {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
 }
-
 .remove-btn {
   font-family: 'work sans', sans-serif;
   border: none;
