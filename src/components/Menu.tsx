@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/Menu.css';
 
 const Menu: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,28 +10,32 @@ const Menu: React.FC = () => {
 
   return (
     <div>
-      <button
+      <svg
+        width="52"
+        height="46"
+        viewBox="0 0 52 46"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
         onClick={toggleMenu}
-        style={{ padding: '0.5rem', fontSize: '1rem' }}
+        className="menubutton"
       >
-        {isMenuOpen ? 'Stäng meny' : 'Öppna meny'}
-      </button>
+        <rect
+          width="52"
+          height="46"
+          rx="4"
+          fill="#EC315A"
+          fill-opacity="0.12"
+        />
+        <rect x="12" y="12" width="28" height="2" rx="1" fill="#EC315A" />
+        <rect x="12" y="22" width="22" height="2" rx="1" fill="#EC315A" />
+        <rect x="12" y="32" width="15" height="2" rx="1" fill="#EC315A" />
+      </svg>
 
       {isMenuOpen && (
-        <nav
-          style={{
-            position: 'absolute',
-            top: '3rem',
-            left: 0,
-            background: '#f0f0f0',
-            padding: '1rem',
-            width: '100%',
-            boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
-          }}
-        >
+        <nav className="nav">
           <ul style={{ listStyle: 'none', padding: 0 }}>
             <li style={{ margin: '0.5rem 0' }}>
-              <a href="/">Boka</a>
+              <a href="/men">Boka</a>
             </li>
             <li style={{ margin: '0.5rem 0' }}>
               <a href="/confirmation">Bekräftelse</a>

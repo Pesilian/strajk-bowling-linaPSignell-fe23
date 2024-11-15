@@ -1,0 +1,129 @@
+.menubutton {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.bookingform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bookingheader {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #ec315a;
+  font-size: 60px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.subheader-when,
+.subheader-shoes {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #441d81;
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: uppercase;
+  position: relative;
+  text-align: center;
+  padding-left: 29%;
+  padding-right: 29%;
+  margin-bottom: 15px;
+}
+
+.subheader-shoes {
+  padding-left: 40%;
+  padding-right: 40%;
+}
+
+.subheader-when::before,
+.subheader-when::after,
+.subheader-shoes::before,
+.subheader-shoes::after {
+  content: '';
+  border-top: 1px solid #441d81;
+  position: absolute;
+  height: 1px;
+  top: 50%;
+  width: 27%;
+}
+
+.subheader-shoes::before,
+.subheader-shoes::after {
+  width: 37%;
+}
+
+.subheader-when::before,
+.subheader-shoes::before {
+  left: 0;
+}
+
+.subheader-when::after,
+.subheader-shoes::after {
+  right: 0;
+  left: auto;
+}
+.form-group {
+  padding: 10px;
+  border: 2px solid;
+  margin: 10px;
+}
+.form-group > label {
+  padding-left: 5px;
+  padding-right: 5px;
+  position: relative;
+  top: -20px;
+  left: 20px;
+  background-color: #fff4f1;
+  font-family: 'Bebas Neue', sans-serif;
+  position: relative;
+}
+
+.form-group > input {
+  border: none;
+  background-color: #fff4f1;
+}
+
+.addplayer-btn {
+  border: none;
+  background-color: #ec315a;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.submit-btn {
+  border: none;
+  background-color: #ec315a;
+  height: 68px;
+  width: 340px;
+  border-radius: 4px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+.shoes-cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-btn {
+  font-family: 'work sans', sans-serif;
+  border: none;
+  background-color: #ec315a;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px;
+}
