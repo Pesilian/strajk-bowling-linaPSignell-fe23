@@ -31,6 +31,11 @@ const BookingForm: React.FC = () => {
     }
   };
 
+  const addPlayer = () => {
+    setPeople(prevPeople => prevPeople + 1);
+    setShoes(prevShoes => [...prevShoes, 0]); // Lägg till en ny skostorlek
+  };
+
   return (
     <div>
       <h1>Boka Bowling</h1>
@@ -64,6 +69,7 @@ const BookingForm: React.FC = () => {
             min="1"
             value={people}
             onChange={e => setPeople(Number(e.target.value))}
+            readOnly // Gör detta fält skrivskyddat eftersom det hanteras av knappen
           />
         </label>
         {Array.from({ length: people }).map((_, idx) => (
@@ -82,6 +88,9 @@ const BookingForm: React.FC = () => {
             />
           </label>
         ))}
+        <button type="button" onClick={addPlayer}>
+          Lägg till spelare
+        </button>
         <button type="submit">Boka</button>
       </form>
     </div>

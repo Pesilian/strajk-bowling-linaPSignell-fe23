@@ -35,9 +35,6 @@ const Menu: React.FC = () => {
             <li style={{ margin: '0.5rem 0' }}>
               <a href="/confirmation">Bekräftelse</a>
             </li>
-            <li style={{ margin: '0.5rem 0' }}>
-              <a href="/about">Om oss</a>
-            </li>
           </ul>
         </nav>
       )}
