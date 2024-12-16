@@ -3,9 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import '../styles/Confirmation.css';
 
+interface BookingData {
+  when: string;
+  people: number;
+  lanes: number;
+  id: string;
+  price: number;
+  shoes: number[];
+  active: boolean;
+}
+
 const Confirmation: React.FC = () => {
   const location = useLocation();
-  const bookingData = location.state?.booking;
+  const bookingData = location.state?.booking as BookingData | undefined;
   const navigate = useNavigate();
 
   const handleMenuClick = () => {
