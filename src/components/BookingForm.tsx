@@ -3,20 +3,35 @@ import { useNavigate } from 'react-router-dom';
 import { makeBooking } from '../services/api';
 import '../styles/BookingForm.css';
 
-const BookingForm: React.FC = () => {
-  const [whenDate, setWhenDate] = useState('');
-  const [whenTime, setWhenTime] = useState('');
-  const [lanes, setLanes] = useState(1);
-  const [people, setPeople] = useState(1);
+interface BookingData {
+  when: string;
+  lanes: number;
+  people: number;
+  shoes: number[];
+}
+
+interface BookingFormProps {}
+
+const BookingForm: React.FC<BookingFormProps> = () => {
+  const [whenDate, setWhenDate] = useState<string>('');
+  const [whenTime, setWhenTime] = useState<string>('');
+  const [lanes, setLanes] = useState<number>(1);
+  const [people, setPeople] = useState<number>(1);
   const [shoes, setShoes] = useState<number[]>([]);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const data = { when: `${whenDate}T${whenTime}`, lanes, people, shoes };
+    const data: BookingData = {
+      when: `${whenDate}T${whenTime}`,
+      lanes,
+      people,
+      shoes,
+    };
 
     try {
       const response = await makeBooking(data);
+      console.log('Booking response:', response);
       navigate('/confirmation', { state: { booking: response } });
     } catch (error) {
       console.error('Error making booking:', error);
@@ -71,8 +86,8 @@ const BookingForm: React.FC = () => {
           fill="#F2994A"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M68 196C97.8234 196 122 171.823 122 142C122 112.177 97.8234 88 68 88C38.1766 88 14 112.177 14 142C14 171.823 38.1766 196 68 196ZM57 107C54.2386 107 52 105.209 52 103C52 100.791 54.2386 99 57 99C59.7614 99 62 100.791 62 103C62 105.209 59.7614 107 57 107ZM72 107C72 109.209 74.2386 111 77 111C79.7614 111 82 109.209 82 107C82 104.791 79.7614 103 77 103C74.2386 103 72 104.791 72 107ZM59 142C54.0294 142 50 138.194 50 133.5C50 128.806 54.0294 125 59 125C63.9706 125 68 128.806 68 133.5C68 138.194 63.9706 142 59 142Z"
           fill="#EC315A"
         />
@@ -104,7 +119,6 @@ const BookingForm: React.FC = () => {
             min="1"
             value={people}
             onChange={e => setPeople(Number(e.target.value))}
-            readOnly
           />
         </div>
         <div className="form-group">

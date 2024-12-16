@@ -14,7 +14,6 @@ import './App.css';
 const App: React.FC = () => {
   const location = useLocation();
 
-  // Kontrollera om sökvägen är /menu
   const isMenuPage = location.pathname === '/menu';
 
   return (
